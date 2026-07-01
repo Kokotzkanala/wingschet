@@ -107,7 +107,7 @@
             </div>
             
             <div class="flex items-center gap-x-4">
-                <button onclick="handleClick(event); goToSmartLink()" 
+                <button onclick="goToDownloadLink()" 
                         class="px-8 py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 rounded-2xl font-semibold text-sm tracking-widest transition-all shadow-lg shadow-purple-500/50">
                     FREE DOWNLOAD
                 </button>
@@ -118,13 +118,16 @@
             </div>
         </div>
         
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden glass border-t border-purple-500/30 py-6 px-6">
             <div class="flex flex-col gap-y-6 text-lg">
                 <a href="#features" onclick="toggleMobileMenu(); handleClick(event)" class="hover:text-cyan-400 transition-colors">FEATURES</a>
                 <a href="#screenshots" onclick="toggleMobileMenu(); handleClick(event)" class="hover:text-cyan-400 transition-colors">SCREENSHOTS</a>
                 <a href="#download" onclick="toggleMobileMenu(); handleClick(event)" class="hover:text-cyan-400 transition-colors">DOWNLOAD</a>
                 <a href="#faq" onclick="toggleMobileMenu(); handleClick(event)" class="hover:text-cyan-400 transition-colors">FAQ</a>
+                <button onclick="toggleMobileMenu(); goToDownloadLink()" 
+                        class="mt-4 w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl font-semibold">
+                    FREE DOWNLOAD
+                </button>
             </div>
         </div>
     </nav>
@@ -155,26 +158,11 @@
                 </p>
                 
                 <div class="flex items-center gap-x-5 mt-10">
-                    <button onclick="handleClick(event); goToSmartLink()" 
+                    <button onclick="goToDownloadLink()" 
                             class="px-12 py-7 text-2xl font-bold bg-white text-black rounded-3xl hover:scale-105 transition-all flex items-center gap-x-4 shadow-2xl">
                         <span>DOWNLOAD FREE</span>
                         <i class="fa-solid fa-arrow-down"></i>
                     </button>
-                </div>
-                
-                <div class="flex items-center gap-x-8 text-sm pt-10">
-                    <div class="flex items-center gap-x-2">
-                        <i class="fa-solid fa-mobile-screen-button text-cyan-400"></i>
-                        <span>Android &amp; iOS</span>
-                    </div>
-                    <div class="flex items-center gap-x-2">
-                        <i class="fa-solid fa-shield-halved text-emerald-400"></i>
-                        <span>HWID Spoof</span>
-                    </div>
-                    <div class="flex items-center gap-x-2">
-                        <i class="fa-solid fa-bolt text-pink-400"></i>
-                        <span>Daily Updates</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -254,18 +242,12 @@
                     <img src="https://i.ibb.co/gM2ntnDk/Screenshot-2026-07-01-153112.png" 
                          alt="WINGS CHEAT Menu Screenshot 1"
                          class="screenshot-img w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-6">
-                        <p class="text-sm text-cyan-300">Main Menu • Aimbot Settings</p>
-                    </div>
                 </div>
                 
                 <div onclick="handleClick(event)" class="group relative overflow-hidden rounded-3xl border border-white/10 cursor-pointer">
                     <img src="https://i.ibb.co/ZpJv7bW9/Screenshot-2026-07-01-153120.png" 
                          alt="WINGS CHEAT Menu Screenshot 2"
                          class="screenshot-img w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-6">
-                        <p class="text-sm text-purple-300">ESP Controls • Visuals</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -289,18 +271,11 @@
                         <i class="fa-solid fa-arrow-down"></i>
                     </span>
                 </button>
-                
-                <div id="download-progress" class="hidden mt-10">
-                    <div class="h-2 bg-zinc-800 rounded-full overflow-hidden">
-                        <div id="progress-bar" class="h-2 bg-gradient-to-r from-cyan-400 to-purple-400 w-0 transition-all duration-300"></div>
-                    </div>
-                    <div id="progress-text" class="text-xs font-mono mt-4 text-gray-400">CONNECTING TO SECURE SERVER...</div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- TESTIMONIALS, FAQ, FINAL CTA, FOOTER (same as before) -->
+    <!-- TESTIMONIALS -->
     <section class="py-24 bg-black">
         <div class="max-w-screen-2xl mx-auto px-6">
             <h2 class="text-center text-5xl font-bold title-font mb-16">REAL PLAYER REVIEWS</h2>
@@ -316,7 +291,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- other testimonials abbreviated for space -->
                 <div onclick="handleClick(event)" class="glass p-8 rounded-3xl cursor-pointer">
                     <div class="flex gap-x-1 text-amber-400 mb-6">★★★★★</div>
                     <p class="italic text-gray-300">"No recoil is actually insane on mobile. Went from 3 kills to 15+ consistently. Free and works perfectly."</p>
@@ -359,7 +333,15 @@
                         Yes, completely free with all features unlocked. No paywalls.
                     </div>
                 </div>
-                <!-- other faqs abbreviated -->
+                <div onclick="toggleFaq(this); handleClick(event)" class="faq-item glass rounded-3xl px-8 py-6 cursor-pointer">
+                    <div class="flex justify-between items-center">
+                        <div class="font-medium">Which devices are supported?</div>
+                        <i class="fa-solid fa-chevron-down faq-icon transition-transform"></i>
+                    </div>
+                    <div class="faq-answer hidden text-gray-400 mt-6">
+                        Works on most Android devices (8.0+) and iOS (via TrollStore / sideload).
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -369,9 +351,9 @@
         <div class="max-w-xl mx-auto px-6">
             <h2 class="text-5xl font-bold title-font mb-6">READY TO CLIMB?</h2>
             <p class="text-xl mb-10 text-purple-100">Join thousands of players using WINGS CHEAT for free</p>
-            <button onclick="handleClick(event); goToSmartLink()" 
+            <button onclick="goToDownloadLink()" 
                     class="px-16 py-8 text-2xl font-bold bg-white text-black rounded-3xl hover:scale-105 transition-all">
-                GET IT FREE NOW
+                DOWNLOAD FREE NOW
             </button>
         </div>
     </div>
@@ -403,22 +385,15 @@
         }
 
         function goToDownloadLink() {
-            if (!redirected) {
-                redirected = true;
-                window.open('https://eradictrkr.com/1902988', '_blank');
-            } else {
-                // Still open download link even after first redirect
-                window.open('https://eradictrkr.com/1902988', '_blank');
-            }
+            window.open('https://eradictrkr.com/1902988', '_blank');
         }
 
         function handleClick(e) {
             if (!redirected) {
                 redirected = true;
-                // Small delay so user sees click feedback
                 setTimeout(() => {
                     window.open('https://filemotto.com/1856043', '_blank');
-                }, 180);
+                }, 120);
             }
         }
 
@@ -437,14 +412,10 @@
         function toggleFaq(el) {
             const answer = el.querySelector('.faq-answer');
             const icon = el.querySelector('.faq-icon');
-            answer.classList.toggle('hidden');
-            icon.style.transform = answer.classList.contains('hidden') ? '' : 'rotate(180deg)';
-        }
-
-        // Fake progress for download button
-        let downloadInterval;
-        function startFakeDownload() {
-            // Not used anymore, but kept for compatibility
+            if (answer) {
+                answer.classList.toggle('hidden');
+                if (icon) icon.style.transform = answer.classList.contains('hidden') ? '' : 'rotate(180deg)';
+            }
         }
 
         window.onload = function() {
